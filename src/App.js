@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Words from './words';
+import Form from './Components/form';
+import Text from './Components/text';
+import Forms from './Components/forms';
+
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
           <h2>GOALCENTRIC</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+          <Words/>
+          <Form/>
+          <Text/>
+          <Forms/>
       </div>
     );
   }
