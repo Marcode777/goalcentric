@@ -4,6 +4,8 @@ import Words from './words';
 import Form from './Components/form';
 import Text from './Components/text';
 import Forms from './Components/forms';
+import Div1 from './Components/div1';
+import Goals from './Components/goals';
 
 
 class App extends Component {
@@ -15,6 +17,8 @@ class App extends Component {
           <Form/>
           <Text/>
           <Forms/>
+          <Div1/>
+          <Goals/>
       </div>
     );
   }

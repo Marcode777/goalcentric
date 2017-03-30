@@ -2,3 +2,11 @@
 .App{
   text-align: center;
 }
+
+#divone{
+  padding-top:50px;height:100px;color: black; background-color: blue; border: 2px solid gray; border-radius: 5px
+}
+
+#goals{
+  padding-top:50px;height:100px;color: black; background-color: #80aaff; border: 2px solid gray; border-radius: 5px
+}
