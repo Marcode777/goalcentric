@@ -1,24 +1,49 @@
 import React, { Component } from 'react';
 import './App.css';
-import Words from './words';
-import Form from './Components/form';
-import Text from './Components/text';
-import Forms from './Components/forms';
-import Div1 from './Components/div1';
+import Motto from './motto';
 import Goals from './Components/goals';
+import AddGoal from './Components/addgoal'
+import uuid from 'uuid';
 
 
 class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      goals: []
+    }
+  }
+
+componentWillMount(){
+  this.setState({
+    goals:[
+       {
+        id:uuid.v4(),
+        title: "First Goal",
+        category: "Important"
+       },
+        {
+        id:uuid.v4(),
+        title: "Second Goal",
+        category: "Secondary Importance"
+       }
+    ]
+  })
+}
+
+handleaddGoal(goal){
+  let goals = this.state.goals;
+  goals.push(goal);
+  this.setState({goals:goals});
+}
+
   render() {
     return (
       <div className="App">
           <h2>GOALCENTRIC</h2>
-          <Words/>
-          <Form/>
-          <Text/>
-          <Forms/>
-          <Div1/>
-          <Goals/>
+          <Motto/>
+          <AddGoal addGoal={this.handleaddGoal.bind(this)}/>
+          <Goals  goals={this.state.goals}/>
       </div>
     );
   }
