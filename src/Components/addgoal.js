@@ -56,3 +56,8 @@ export default class AddGoal extends React.Component{
       );
   }
 }
+
+  AddGoal.propTypes ={
+      categories: React.PropTypes.array,
+      addGoal: React.PropTypes.func
+}

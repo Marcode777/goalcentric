@@ -2,6 +2,10 @@ import React, {Component} from 'react';
 import GoalItem from './goalitem';
 
 export default class Goals extends React.Component{
+  deleteGoal(id){
+    this.props.onDelete(id)
+  }
+
   render(){
 
     let goalItems;
@@ -9,7 +13,7 @@ export default class Goals extends React.Component{
         goalItems = this.props.goals.map(goal=> {
           //console.log(goal);
           return(
-              <GoalItem key={goal.title} goal={goal} />
+              <GoalItem onDelete={this.deleteGoal.bind(this)} key={goal.title} goal={goal}/>
             );
         });
       }
@@ -20,5 +24,12 @@ export default class Goals extends React.Component{
           {goalItems}
         </div>
       );
+
+   
+    }
   }
+  
+   Goals.propTypes ={
+      goals: React.PropTypes.array,
+      onDelete: React.PropTypes.func
 }
