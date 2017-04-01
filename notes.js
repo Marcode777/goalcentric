@@ -106,9 +106,55 @@
 // and then we go to the componentWillMount(){} section and give an id property (key:value pair) in the objects by typing " id:uuid.v4(), " along with the title and category properties
 // so each time we use this, it will generate a new id
 // and then in the "addgoal.js" file, when we add a new goal, we also want to add an id, so we also import it there and type it inside the setState where we set the newGoal
-// LEFT OFF AT 42:29
+// now in order to be able to delete these items, so in the "goalitem.js" file, we'll place a link at the end of the line items within the li tags, " <a href="#"> X </a> " and we want to put an event handler onClick set to {this.deleteGoal.bind(this)} so it should look like this " <a href="#" onClick={this.deleteGoal.bind(this)}> X </a> "
+// then we're going to create the corresponding handler function up above the render(), and we'll call it deleteGoal(){}
+// now it's the same idea, what we want is when we click on it in this Component, but we want to pass it up to the main Component and then do the final delete there
+// now since we're in the "goalitem.js" file, we're actually 2 Components deep, so we need to pass it up to "goals.js" file and then pass it up to the main App Component
+// to do that, we're going to set a property in the deleteGoal function in "goalitem.js" file and we're going to pass in " this.props.onDelete() " and we're going to pass in the id " this.props.onDelete() " , to pass along the id, we go back to " {this.deleteGoal.bind(this)} " and make it into this " {this.deleteGoal.bind(this, this.props.goal.id)} "
+// now we should be able to access it as here " deleteGoal(id){this.props.onDelete(id)} "
+// now we're going go to our "goals.js" file and turn this " <GoalItem key={goal.title} goal={goal} /> " into this " <GoalItem onDelete={this.deleteGoal.bind(this)}  key={goal.title} goal={goal} /> " and we also want to create the corresponding function above the render() like so " deleteGoal(id){this.props.onDelete(id)} "
+// so now we're passing it up to the main Component so down where we have <Goals  goals={this.state.goals}/> we want to pass in onDelete like so " <Goals  goals={this.state.goals} onDelete={this.handleDeleteGoal.bind(this) /> " 
+// and just as we created a handleAddGoal function before, we're also going to add a corresponding handleDeleteGoal function
+// and the idea is that just like the handleAddGoal, we want to get it from state and then we want to remove the goal that we want and then refresh the state. Now we can do this in different ways, we could use a for-loop or something like that, but we're going to use findIndex like so " handleDeleteGoal(id){let goals = this.state.goals;let index = goals.findIndex(x=> x.id === id);goals.splice(index,1);this.setState({goals: goals});} " 
+// and what the code above is doing is it's basically going to look through all the goals, it's going to find all the IDs and try to match it to the current ID that's being passed in, if it matches, then it's going to get put in the index, then it will splice where that index is, and we want to delete 1 from that, and then we refresh the state by doing setState.
+// and now the delete function works.
+
+// 47:22
+// In Summary, We Can Now Add Goals and Delete Them As Well. Now The App Is Fully Functional.
 
 
+
+
+
+
+// Extra:
+// prop types are a kind of validation for properties, just like the following code that we added to the "goals.js" file
+
+// Goals.propTypes ={
+    //   goals: React.PropTypes.array,
+    //   onDelete: React.PropTypes.func
+    // }
+
+// after implementing the code above, we say that goals is an array and onDelete is a function.
+// we see that everyhing still works fine, this is because the types are all correct and they have passed this validation, however, if the types are not correct, this validation will throw an error on the console. So it's good practice to do this. // let's do this for "goalitem.js" as well but changing the class from "Goals" to "GoalItem", now the same for "addgoal.js" so we can check for the types of properties, and so on and so forth
+
+// how to bring in other data from an outside API
+// this involves our main App Component. First, we'll get placebo data from a dev api called JSON Placeholder, and if we want to get some todos, we click on the link containing them
+// we can make a GET request to those todos
+// so in our main App Component, we want to make the request in a lifecycle function called componentDidMount(){}, well actually, we should put this in both componentDidMount(){} and componentWillMount(){}
+// so what we'll do is create a function called getTodos(){} and we're going to want to run that in both these component lifecycles so we'll insert it as " this.getTodos() " function and insert it in both lifecycle methods
+// and where we put the projects in state, we also want to create a function for that separately called getGoals(){} and all we're going to do is get the setState goals from the componentWillMount lifecycle and move it to the getGoals function and then we'll call that setState from the componentWillMount as this.getGoals();
+// now in getTodos(); this is where we want to make our request, and we can use many different modules to make HTTP Requests, (there are Axios and SuperAgent as alternatives) but we'll use jQuery, so let's install jQuery through NPM by running command, npm install jquery --save
+// so let's go ahead and import jQuery in our main App Component by doing " import $ from 'jquery'; "
+// and then back to our getTodos(){}; function,  *the following is just me typing instructions* we're going to say jQuery.ajax and we want to pass in the url, the url is from the json placeholder, the dataType is going to json, cache false, and then we have our success, so if everything goes okay, this will run, and that takes in the data that's returned, and we also need to bind this just like we do with the other function ,then put a comma and then we're going to have our error in case there's an error, and for that, that's going to take in error, actually it's going to take in a couple of things, xhr, status, and err, and then all we want to do here is console.log the error.
+// now if everything goes okay, we want to take the data that's returned and put it into our state, so up in the state here, let's add todos which will be an empty array, and then down here we can say this.setState, and we'll say Todos and we'll set that to the data, and then let's put a callback and then we can check the state, so console.log this.state, so since we have get Todos running in these lifecycle methods, it should run when the app loads. 
+// so let's go back and refresh it, open up the console, open up the logged object, and we have our goals array of objects within and we can also see within it that it's logging the array of 200 todo objects from the API 
+// so it's as easy as that to bring data from an outside source and put it into our state, and then we can use that in the rest of our Application.
+// LEFT OFF AT 55:45
+// We can do that real quick, let's create another component called todos.js and we'll also create one called todoitem.js and we're going to do kind of the same we did with the goals
+// so we're going to copy what we have in goals and paste that into todos.js, we're going to change a lot of the goals syntax to todos, we're not going to do the delete and add functions though, we just want to list them so we'll get rid of that, we know we're moving kind of fast, but don't want this to take too long, we just want to do this quick.
+// now we're going to pass in todos as properties just as we did here, and then we'll say todoitems this.prop.todos.map, then we're going to return the todoitem component, we don't need the onDelete, and I believe the dos have a title, let's check it out, yeah they have a title and an id, so this can be todo.title, todo, ooops okay down here, change that, just say todos, alright and then for the prop types, we don't need the onDelete and then let's make sure we export todos. Alright so let's save that.
+// and then in todoitem.js, we're going to copy what we have goalitem.js, paste that in, okay we don't need the delete, and here let's say todo... change that... uhhmmm we don't need a category so let's get rid of that, it's just going to be the todo, we don't need the link to delete, change that, alright. Save that. And let's see, now in the main App Component, we're going to import both of those, or actually, we're just going to import todos, alright and then we'll add that down here, let's put an <hr/>, save that, now I'll probably get an error, no error, but we're not outputting anything, and that's because we didn't pass anything into Todos, so we want to pass along the todos that we have in state. So we'll say this.state.todos, save it, AND THERE THEY ARE. SO THOSE ARE ALL COMING IN FROM THAT API. SO YOU CAN SEE IT'S EASY TO PULL IN DATA AND JUST BRING IT INTO OUR STATE AND THEN PUBLISH IT DOWN TO COMPONENTS THROUGH PROPERTIES. AND WE MADE A GET REQUEST BUT OF COURSE WE COULD ALSO MAKE POST REQUESTS AND WE COULD SUBMIT DATA TO APIs AND TO EXTERNAL DATABASES AND SO ON. ALRIGHT SO THIS IS GETTING KINDA LONG SO WE'RE GOING TO GO AHEAD AND STOP HERE. WE COVERED PRETTY MUCH ALL THE FUNDAMENTALS OF REACT. THANKS BRAD TRAVERSY!!!!! 
 
 
 
