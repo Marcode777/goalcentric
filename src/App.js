@@ -44,7 +44,7 @@ getGoals(){
         {
         id:uuid.v4(),
         title: "Second Goal",
-        category: "Secondary Importance"
+        category: "Secondary"
        }
     ]
   })
