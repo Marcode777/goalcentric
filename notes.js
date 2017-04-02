@@ -1,3 +1,10 @@
+// the whole GOALCENTRIC app is contained inside the div with the id "root" inside the html file in the public folder
+// the src folder is where all the React code is typed
+// any property you want to pass into or from a component must be done with the {this.props.whatevername} syntax
+// *Key concept is from 23:05 - 23:30* 
+// we want to define the state and the keys in the constructor(){super();} function, but not the actual data, for that data, we want to keep in a lifecycle method such as componentWillMount(){}, which fires off every time the component is re-rendered
+// *Key concept from 34:37 - 35:00* Each Component has its own state, but to synchronize it to the state of the main App Component, it can be sent up through properties.
+
 // in the package.json file
 // in the dependencies section, we can see that we are using react and the current version, and react-dom and the current version
 // in our scripts section, start, will just start the application, build is used to compile everything
