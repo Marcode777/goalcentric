@@ -8,6 +8,7 @@ import $ from 'jquery';
 import Todos from './Components/todos';
 
 
+
 class App extends Component {
   constructor(){
     super();
@@ -24,6 +25,23 @@ getTodos(){
     cache: false,
     success: function(data){
       this.setState({todos: data}, function(){
+        console.log(this.state);
+      });
+    }.bind(this),
+    error: function(xhr, status, err){
+      console.log(err);
+    }
+  })
+}
+
+getWeather(){
+  $.ajax({
+    url: 'http://api.wunderground.com/api/3758d4a57136a50e/conditions/q/NY/New_York_City.json',
+    dataType:'json',
+    cache: false,
+    success: function(data){
+      console.log(data.current_observation);
+      this.setState({data: data}, function(){
         console.log(this.state);
       });
     }.bind(this),
@@ -53,6 +71,7 @@ getGoals(){
 componentWillMount(){
   this.getGoals();
   this.getTodos();
+  this.getWeather();
 }
 
 componentDidMount(){
@@ -75,12 +94,13 @@ handleDeleteGoal(id){
   render() {
     return (
       <div className="App">
-          <h2>GOALCENTRIC</h2>
+          <h2 className="header" >GOALCENTRIC</h2>
           <Motto/>
           <AddGoal addGoal={this.handleaddGoal.bind(this)}/>
           <Goals  goals={this.state.goals} onDelete={this.handleDeleteGoal.bind(this)}/>
 
           <Todos todos={this.state.todos}/>
+          
       </div>
     );
   }
