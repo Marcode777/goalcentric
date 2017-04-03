@@ -9,7 +9,7 @@ export default class GoalItem extends React.Component{
     return(
         <ul>
           <li className="goals">
-          <h3>{this.props.goal.title} -  {this.props.goal.category} <a href="#" onClick={this.deleteGoal.bind(this, this.props.goal.id)}>X</a></h3>
+          <h3>{this.props.goal.title} -  {this.props.goal.category} <button onClick={this.deleteGoal.bind(this, this.props.goal.id)}>X</button></h3>
           </li>
         </ul>
       );

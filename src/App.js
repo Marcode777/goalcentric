@@ -5,7 +5,7 @@ import Goals from './Components/goals';
 import AddGoal from './Components/addgoal'
 import uuid from 'uuid';
 import $ from 'jquery';
-import Todos from './Components/todos';
+// import Todos from './Components/todos';
 
 
 
@@ -99,8 +99,7 @@ handleDeleteGoal(id){
           <AddGoal addGoal={this.handleaddGoal.bind(this)}/>
           <Goals  goals={this.state.goals} onDelete={this.handleDeleteGoal.bind(this)}/>
 
-          <Todos todos={this.state.todos}/>
-          
+                    
       </div>
     );
   }
