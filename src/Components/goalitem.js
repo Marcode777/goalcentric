@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 
+
 export default class GoalItem extends React.Component{
   deleteGoal(id){
     this.props.onDelete(id)
