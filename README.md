@@ -1,5 +1,7 @@
 to use this app
 
+remember to first run command, npm install --save
+
 on the terminal, cd into goalcentric, cd into goalcentric again
 and then run the command, npm start
 
