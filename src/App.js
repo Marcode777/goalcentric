@@ -8,7 +8,6 @@ import $ from 'jquery';
 // import Todos from './Components/todos';
 
 
-
 class App extends Component {
   constructor(){
     super();
@@ -97,8 +96,7 @@ handleDeleteGoal(id){
           <h2 className="header" >GOALCENTRIC</h2>
           <Motto/>
           <AddGoal addGoal={this.handleaddGoal.bind(this)}/>
-          <Goals  goals={this.state.goals} onDelete={this.handleDeleteGoal.bind(this)}/>
-
+          <Goals goals={this.state.goals} onDelete={this.handleDeleteGoal.bind(this)}/>
                     
       </div>
     );
