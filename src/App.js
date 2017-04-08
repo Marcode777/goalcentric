@@ -5,6 +5,7 @@ import Goals from './Components/goals';
 import AddGoal from './Components/addgoal'
 import uuid from 'uuid';
 import $ from 'jquery';
+import Extra from './Components/extra';
 // import Todos from './Components/todos';
 
 
@@ -90,14 +91,16 @@ handleDeleteGoal(id){
   this.setState({goals: goals});
 }
 
+
   render() {
     return (
       <div className="App">
           <h2 className="header" >GOALCENTRIC</h2>
           <Motto/>
           <AddGoal addGoal={this.handleaddGoal.bind(this)}/>
-          <Goals goals={this.state.goals} onDelete={this.handleDeleteGoal.bind(this)}/>
-                    
+          <Goals id="goals" goals={this.state.goals} onDelete={this.handleDeleteGoal.bind(this)} />
+          <Extra word="awww yeah" />
+          
       </div>
     );
   }
