@@ -14,11 +14,6 @@
   padding-top:50px;height:500px;color: black; background-color: white; border: 2px solid gray; border-radius: 5px
 }
 
-.one{
-  color: red;
+#extra{
+  padding-top:50px;height:500px;color: black; background-color: orange; border: 2px solid gray; border-radius: 5px
 }
-
-.two{
-  color: blue;
-}
-

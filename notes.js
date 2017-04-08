@@ -1,7 +1,7 @@
 // OVERVIEW OF CONCEPTS
 // Data flows from the top-down, from the main App.js Component to the other Components
 // the data is passed through to the other components in a top-down fashion via props
-// State is set via the constructor()suoer(); function. However the data for this state should be contained in lifecycle methods which fire at a certain point in time, such as componentWillMount(){}
+// State is set via the constructor()super(); function. However the data for this state should be contained in lifecycle methods which fire at a certain point in time, such as componentWillMount(){}
 // In order to pass state and data from the outer Components back to the main App.js Component, it must traverse back to the main App.js Component the same way it got there, e.g., if it traversed 2 layers of Components to get to it, it must also traverse the same 2 layers back, if it traversed 3 layers of Components from the main App.js Component, it must also traverse the same 3 layers of Components to get back to the main App.js Component
 
 

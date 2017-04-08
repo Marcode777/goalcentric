@@ -4,7 +4,7 @@ import GoalItem from './goalitem';
 var containerStyle = {
       marginTop: "10px",
       backgroundImage: 'url("http://wallpapercave.com/wp/TSlZ57J.jpg")',
-      position:"absolute",
+      position:"relative", // changed from "absolute" to "static" to "fixed" to "relative" back to "absolute"
       WebkitBackgroundSize: 'cover', // note the capital 'W' here
       height:"100%",
       width:"100%"
@@ -28,7 +28,7 @@ export default class Goals extends React.Component{
       }
 
     return(
-        <div id="goals" style={containerStyle} >
+        <div id="goals" style={containerStyle}>
           <h3>GOALS</h3>
           {goalItems}
 
