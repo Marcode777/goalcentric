@@ -6,7 +6,7 @@ var containerStyle = {
       backgroundImage: 'url("http://wallpapercave.com/wp/TSlZ57J.jpg")',
       position:"relative", // changed from "absolute" to "static" to "fixed" to "relative" back to "absolute"
       WebkitBackgroundSize: 'cover', // note the capital 'W' here
-      height:"100%",
+      height:"500px",
       width:"100%"
     };
 
