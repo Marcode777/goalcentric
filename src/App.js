@@ -99,7 +99,7 @@ handleDeleteGoal(id){
           <Motto/>
           <AddGoal addGoal={this.handleaddGoal.bind(this)}/>
           <Goals id="goals" goals={this.state.goals} onDelete={this.handleDeleteGoal.bind(this)} />
-          <Extra word="awww yeah" />
+          <Extra word="extra" />
           
       </div>
     );
