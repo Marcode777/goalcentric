@@ -4,7 +4,14 @@
 // State is set via the constructor()super(); function. However the data for this state should be contained in lifecycle methods which fire at a certain point in time, such as componentWillMount(){}
 // In order to pass state and data from the outer Components back to the main App.js Component, it must traverse back to the main App.js Component the same way it got there, e.g., if it traversed 2 layers of Components to get to it, it must also traverse the same 2 layers back, if it traversed 3 layers of Components from the main App.js Component, it must also traverse the same 3 layers of Components to get back to the main App.js Component
 
-
+// JavaScript expressions can be used in the DOM by entering them in curly brackets { }
+// If Else statements cannot be used in JSX but conditional or ternary expressions can be used instead, e.g. " condition ? expr1 : expr2  "
+// Styling using JSX, React recommends using inline styles, using camelCase, and React automatically renders the value of px on specific elements. A style component is written in object syntax.
+// comments in JSX can also be made by starting them with // and placing them inside curly braces with correct spacing e.g., 
+//     {
+     // this is a comment in JSX
+//      }
+// the naming convention for html tags are that they are in lower case, and the naming convention for Components are that they start with an uppercase
 
 // the whole GOALCENTRIC app is contained inside the div with the id "root" inside the html file in the public folder
 // the src folder is where all the React code is typed

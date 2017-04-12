@@ -100,9 +100,27 @@ handleDeleteGoal(id){
           <AddGoal addGoal={this.handleaddGoal.bind(this)}/>
           <Goals id="goals" goals={this.state.goals} onDelete={this.handleDeleteGoal.bind(this)} />
           <Extra word="extra" />
+          <Sample1/>
+          <Sample2/>
           
       </div>
     );
+  }
+}
+
+class Sample1 extends React.Component{
+  render(){
+    return(
+      <h2>SAMPLE1</h2>
+    )
+  }
+}
+
+class Sample2 extends React.Component{
+  render(){
+    return(
+      <h3>SAMPLE2</h3>
+    )
   }
 }
 
