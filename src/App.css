@@ -1,7 +1,7 @@
 /*cleared and ready for customization*/
 .App{
   text-align: center;
-  padding-top:50px;height:250px;color: black; background-color: #0000ff; border: 2px solid gray; border-radius: 5px
+  padding-top:50px;height:300px;color: black; background-color: #0000ff; border: 2px solid gray; border-radius: 5px
 }
 
 .header{
@@ -11,7 +11,7 @@
 
 
 #goals{
-  padding-top:100px;height:500px;color: black; background-color: white; border: 2px solid gray; border-radius: 5px
+  padding-top:50px;height:500px;color: black; background-color: white; border: 2px solid gray; border-radius: 5px
 }
 
 #extra{

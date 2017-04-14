@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import GoalItem from './goalitem';
-var goalStyle = {color: "red"};
+
+
 
 var containerStyle = {
       marginTop: "10px",
@@ -31,7 +32,6 @@ export default class Goals extends React.Component{
     return(
         <div id="goals" style={containerStyle}>
           <h3>GOALS</h3>
-          <h3 style={goalStyle}>BELIEVE AND SUCCEED</h3>
           {goalItems}
 
         </div>
