@@ -30,7 +30,7 @@ export default class Clock extends React.Component{
 
   render(){
     return(
-        <h3 style={clockStyle}>The current time is: {this.state.date.toLocaleTimeString()} </h3>
+        <h3 style={clockStyle}>CLOCK: {this.state.date.toLocaleTimeString()} </h3>
       );
   }
 }
